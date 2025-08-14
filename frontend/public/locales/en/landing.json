@@ -1,0 +1,47 @@
+{
+  "landing": {
+    "title": "AI-Powered Crop",
+    "subtitle": "Disease Detection",
+    "description": "Protect your crops with cutting-edge artificial intelligence. Upload aphoto and get instant disease detection with confidence scores and treatment recommendations.",
+    "startDetection": "Start Detection",
+    "viewHistory": "View History",
+    "accuracy": "Detection Accuracy",
+    "time": "Analysis Time",
+    "types": "Disease Types",
+    "why": "Why Choose CropWise?",
+    "whyDesc": "Our advanced AI technology provides farmers with the tools they need to protect their crops and maximize yields.",
+    "features": [
+      {
+        "title": "AI-Powered Detection",
+        "desc": "Advanced machine learning algorithms analyze your crop images for instant disease identification."
+      },
+      {
+        "title": "Instant Results",
+        "desc": "Get detection results in seconds with confidence scores and detailed analysis."
+      },
+      {
+        "title": "Early Prevention",
+        "desc": "Catch disease early to prevent crop loss and optimize your harvest yield."
+      }
+    ],
+    "how": "How It Works",
+    "howDesc": "Simple, fast, and accurate crop disease detection in three easy steps",
+    "steps": [
+      {
+        "title": "Upload Image",
+        "desc": "Take a photo of your crop or upload an existing image from your device."
+      },
+      {
+        "title": "AI Analysis",
+        "desc": "Our AI analyzes the image and identifies the crop type and any potential diseases."
+      },
+      {
+        "title": "Get Results",
+        "desc": "Receive instant results with confidence scores and save to your history for tracking."
+      }
+    ],
+    "ctaTitle": "Ready to Protect Your Crops?",
+    "ctaDesc":"Join thousands of farmers who trust CropWise to keep their crops healthy and maximize their harvest yields.",
+    "ctaBtn": "Get some farming tips"
+  }
+}

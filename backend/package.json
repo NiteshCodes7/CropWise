@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "run": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@clerk/backend": "^2.3.0",
+    "@clerk/clerk-sdk-node": "^4.13.23",
+    "@clerk/express": "^1.7.2",
+    "@google-cloud/translate": "^9.1.0",
+    "@google/genai": "^1.7.0",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.10.0",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "i18next": "^25.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.1",
+    "multer": "^2.0.1",
+    "node-cron": "^4.2.0",
+    "nodemailer": "^7.0.4",
+    "nodemon": "^3.1.10",
+    "qs": "^6.14.0",
+    "react-i18next": "^15.5.3",
+    "twilio": "^5.7.1"
+  }
+}
