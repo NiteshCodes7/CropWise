@@ -1,4 +1,4 @@
-# CropWise Frontend ![CropWise Logo](./frontend/public/icon.svg)
+# CropWise Frontend <img src="./frontend/public/icon.svg" alt="CropWise Logo" width="32" height="32" style="vertical-align:middle;" />
 
 CropWise is a web application designed to help farmers and agricultural professionals manage crops efficiently. This repository contains the frontend codebase built with modern web technologies.
 
