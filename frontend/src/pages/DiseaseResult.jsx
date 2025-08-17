@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { History as HistoryIcon, Plus } from "lucide-react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Text parser (for markdown format fallback)
 function parseSolutionText(text) {
@@ -31,6 +32,7 @@ export default function DiseaseResultPage() {
   const [history, setHistory] = useState([]);
   const [token, setToken] = useState(null);
   const navigate = useNavigate();
+  const { t } = useTranslation("diseaseHistory");
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -82,10 +84,10 @@ export default function DiseaseResultPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-green-900 mb-2">
-            Detection History
+            {t("title")}
           </h1>
           <p className="text-green-700">
-            View and manage your crop disease detection history
+            {t("subTitle")}
           </p>
         </div>
 
@@ -93,7 +95,7 @@ export default function DiseaseResultPage() {
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <HistoryIcon className="w-5 h-5" />
-              <span>Your Detection History</span>
+              <span>{t("detect")}</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -101,11 +103,10 @@ export default function DiseaseResultPage() {
               <div className="text-center py-12 text-green-600">
                 <HistoryIcon className="w-16 h-16 mx-auto mb-4 text-green-300" />
                 <h3 className="text-lg font-medium text-green-900 mb-2">
-                  No detection history yet
+                  {t("noHistory")}
                 </h3>
                 <p className="text-green-600 mb-6">
-                  Start by uploading and analyzing crop images to build your
-                  history
+                  {t("start")}
                 </p>
                 <button
                   className="bg-green-600 hover:bg-green-700 text-white px-8 py-2 text-lg rounded-xl cursor-pointer"
@@ -113,7 +114,7 @@ export default function DiseaseResultPage() {
                 >
                   <div className="flex gap-2 items-center">
                     <Plus className="w-5 h-5" />
-                    Upload Crop Photo
+                    {t("upload")}
                   </div>
                 </button>
               </div>
@@ -180,7 +181,7 @@ export default function DiseaseResultPage() {
                       </div>
 
                       <Button onClick={() => handleResolve(item._id)} className="w-full outline-none text-sm mt-2 bg-red-500 text-white hover:bg-red-700">
-                        ✅ Mark as Resolved
+                        ✅ {t("resolved")}
                       </Button>
                     </li>
                   );

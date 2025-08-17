@@ -17,7 +17,7 @@ import {
 
 export default function Navbar({ className }) {
   const [isOpen, setOpen] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation("navbar");
 
   const handleClick = () => setOpen(!isOpen);
   const changeLanguage = (e) => i18n.changeLanguage(e.target.value);
@@ -48,7 +48,7 @@ export default function Navbar({ className }) {
                 }`
               }
             >
-              <LayoutDashboard /> Dashboard
+              <LayoutDashboard /> {t("dashboard")}
             </NavLink>
             <NavLink
               to="/global-log"
@@ -60,7 +60,7 @@ export default function Navbar({ className }) {
                 }`
               }
             >
-              <MapPin /> Disease Map
+              <MapPin /> {t("diseaseMap")}
             </NavLink>
             <NavLink
               to="/upload"
@@ -72,7 +72,7 @@ export default function Navbar({ className }) {
                 }`
               }
             >
-              <Camera /> Photo Upload
+              <Camera /> {t("photoUpload")}
             </NavLink>
             <NavLink
               to="/history"
@@ -84,7 +84,7 @@ export default function Navbar({ className }) {
                 }`
               }
             >
-              <History /> History
+              <History /> {t("history")}
             </NavLink>
             <NavLink
               to="/weather"
@@ -96,7 +96,7 @@ export default function Navbar({ className }) {
                 }`
               }
             >
-              <Cloud /> Weather & Prices
+              <Cloud /> {t("weather")}
             </NavLink>
             <NavLink
               to="/farmingtips"
@@ -108,7 +108,7 @@ export default function Navbar({ className }) {
                 }`
               }
             >
-              <LightbulbIcon /> Farming Tips
+              <LightbulbIcon /> {t("farmingTips")}
             </NavLink>
           </div>
 
@@ -151,7 +151,7 @@ export default function Navbar({ className }) {
                 onClick={handleClick}
                 className="text-green-700 hover:text-green-900 flex items-center gap-2"
               >
-                <LayoutDashboard /> Dashboard
+                <LayoutDashboard /> {t("dashboard")}
               </Link>
             </li>
             <li>
@@ -160,7 +160,7 @@ export default function Navbar({ className }) {
                 onClick={handleClick}
                 className="text-green-700 hover:text-green-900 flex items-center gap-2"
               >
-                <MapPin /> Disease Map
+                <MapPin /> {t("diseaseMap")}
               </Link>
             </li>
             <li>
@@ -169,7 +169,7 @@ export default function Navbar({ className }) {
                 onClick={handleClick}
                 className="text-green-700 hover:text-green-900 flex items-center gap-2"
               >
-                <Camera /> Photo Upload
+                <Camera /> {t("diseaseMap")}
               </Link>
             </li>
             <li>
@@ -178,7 +178,7 @@ export default function Navbar({ className }) {
                 onClick={handleClick}
                 className="text-green-700 hover:text-green-900 flex items-center gap-2"
               >
-                <History /> History
+                <History /> {t("history")}
               </Link>
             </li>
             <li>
@@ -187,7 +187,7 @@ export default function Navbar({ className }) {
                 onClick={handleClick}
                 className="text-green-700 hover:text-green-900 flex items-center gap-2"
               >
-                <Cloud /> Weather & Prices
+                <Cloud /> {t("weather")}
               </Link>
             </li>
             <li>
@@ -196,7 +196,7 @@ export default function Navbar({ className }) {
                 onClick={handleClick}
                 className="text-green-700 hover:text-green-900 flex items-center gap-2"
               >
-                <LightbulbIcon /> Farming Tips
+                <LightbulbIcon /> {t("farmingTips")}
               </Link>
             </li>
 

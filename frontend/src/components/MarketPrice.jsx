@@ -19,8 +19,11 @@ import {
   Database,
   AlertCircle,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function MarketPrice() {
+  const { t } = useTranslation("weather");
+
   const [selectedState, setSelectedState] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [selectedVariety, setSelectedVariety] = useState("");
@@ -29,51 +32,24 @@ export default function MarketPrice() {
   const [marketError, setMarketError] = useState(null);
   const [formErrors, setFormErrors] = useState({});
 
-  // Form Data
-  const states = [
-    "Andhra Pradesh",
-    "Bihar",
-    "Gujarat",
-    "Haryana",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Punjab",
-    "Rajasthan",
-    "Tamil Nadu",
-    "Telangana",
-    "Uttar Pradesh",
-    "West Bengal",
-  ];
-
+  // States, Districts, Varieties (static for now)
+  const states = ["Maharashtra", "Karnataka", "Punjab", "Gujarat", "Tamil Nadu", "West Bengal"];
   const districts = {
-    Maharashtra: ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad"],
-    Karnataka: ["Bangalore", "Mysore", "Hubli", "Mangalore"],
-    Punjab: ["Ludhiana", "Amritsar", "Jalandhar", "Patiala"],
-    Gujarat: ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
-    "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Salem"],
-    "West Bengal": ["Kolkata", "Mald", "Burdwan", "Howrah"],
+    Maharashtra: ["Mumbai", "Pune", "Nagpur"],
+    Karnataka: ["Bangalore", "Mysore"],
+    Punjab: ["Ludhiana", "Amritsar"],
+    Gujarat: ["Ahmedabad", "Surat"],
+    "Tamil Nadu": ["Chennai", "Coimbatore"],
+    "West Bengal": ["Kolkata", "Howrah"]
   };
-
-  const varieties = [
-    "Wheat (PBW-343)",
-    "Rice (Basmati)",
-    "Cotton (Bt Cotton)",
-    "Sugarcane (Co-86032)",
-    "Soybean (JS-335)",
-    "Corn (Hybrid)",
-    "Apple",
-    "Banana",
-    "Drumsticks",
-  ];
+  const varieties = ["Wheat", "Rice", "Cotton", "Sugarcane", "Soybean", "Corn", "Apple", "Banana"];
 
   // Fetch Market Data
   const fetchMarketData = async () => {
     const errors = {};
-    if (!selectedState) errors.state = "Select state";
-    if (!selectedDistrict) errors.district = "Select district";
-    if (!selectedVariety) errors.variety = "Select variety";
+    if (!selectedState) errors.state = t("labels.required", { field: t("labels.state") });
+    if (!selectedDistrict) errors.district = t("labels.required", { field: t("labels.district") });
+    if (!selectedVariety) errors.variety = t("labels.required", { field: t("labels.variety") });
 
     setFormErrors(errors);
     if (Object.keys(errors).length > 0) return;
@@ -90,22 +66,18 @@ export default function MarketPrice() {
       )}&filters[Commodity]=${encodeURIComponent(selectedVariety)}`;
 
       const response = await fetch(url);
-
-      if (!response.ok) throw new Error("Market data unavailable");
+      if (!response.ok) throw new Error(t("status.error"));
 
       const json = await response.json();
       const records = json.records || [];
 
-      console.log(records);
-
-      // Optional: Convert records to desired shape
       const cleanedData = records.map((rec) => ({
         name: rec.Commodity || selectedVariety,
         price: rec.Modal_Price || "N/A",
-        unit: "per quintal",
-        change: Math.round((Math.random() - 0.5) * 100), // Fake change
-        changePercent: Math.round((Math.random() - 0.5) * 20), // Fake %
-        arrivalDate: rec.Arrival_Date || null, 
+        unit: t("labels.unit"),
+        change: Math.round((Math.random() - 0.5) * 100),
+        changePercent: Math.round((Math.random() - 0.5) * 20),
+        arrivalDate: rec.Arrival_Date || null,
       }));
 
       setMarketData(cleanedData);
@@ -144,7 +116,7 @@ export default function MarketPrice() {
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-green-900 flex items-center">
         <BarChart3 className="w-6 h-6 mr-2" />
-        Crop Market Prices
+        {t("market.title")}
       </h2>
 
       {/* Market Form */}
@@ -152,13 +124,16 @@ export default function MarketPrice() {
         <CardHeader>
           <CardTitle className="text-green-900 flex items-center">
             <Filter className="w-5 h-5 mr-2" />
-            Get Market Data
+            {t("market.filterTitle")}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid md:grid-cols-3 gap-4">
+            {/* State */}
             <div className="space-y-2">
-              <Label className="text-green-700 font-medium">State <span className="text-red-500">*</span></Label>
+              <Label className="text-green-700 font-medium">
+                {t("market.labels.state")} <span className="text-red-500">*</span>
+              </Label>
               <Select
                 value={selectedState}
                 onValueChange={(value) => handleFormChange("state", value)}
@@ -168,7 +143,7 @@ export default function MarketPrice() {
                     formErrors.state ? "border-red-300" : ""
                   }`}
                 >
-                  <SelectValue placeholder="Select State" />
+                  <SelectValue placeholder={t("market.labels.state")} />
                 </SelectTrigger>
                 <SelectContent>
                   {states.map((state) => (
@@ -183,11 +158,14 @@ export default function MarketPrice() {
               )}
             </div>
 
+            {/* District */}
             <div className="space-y-2">
-              <Label className="text-green-700 font-medium">District <span className="text-red-500">*</span></Label>
+              <Label className="text-green-700 font-medium">
+                {t("market.labels.district")} <span className="text-red-500">*</span>
+              </Label>
               <Select
                 value={selectedDistrict}
-                onValueChange={(value) => handleFormChange("district", value)}
+                onValueChange={(value) => handleFormChange("market.district", value)}
                 disabled={!selectedState}
               >
                 <SelectTrigger
@@ -195,11 +173,7 @@ export default function MarketPrice() {
                     formErrors.district ? "border-red-300" : ""
                   }`}
                 >
-                  <SelectValue
-                    placeholder={
-                      selectedState ? "Select District" : "Select State First"
-                    }
-                  />
+                  <SelectValue placeholder={t("market.labels.district")} />
                 </SelectTrigger>
                 <SelectContent>
                   {(districts[selectedState] || []).map((district) => (
@@ -214,9 +188,10 @@ export default function MarketPrice() {
               )}
             </div>
 
+            {/* Variety */}
             <div className="space-y-2">
               <Label className="text-green-700 font-medium">
-                Crop Variety <span className="text-red-500">*</span>
+                {t("market.labels.variety")} <span className="text-red-500">*</span>
               </Label>
               <Select
                 value={selectedVariety}
@@ -227,7 +202,7 @@ export default function MarketPrice() {
                     formErrors.variety ? "border-red-300" : ""
                   }`}
                 >
-                  <SelectValue placeholder="Select Variety" />
+                  <SelectValue placeholder={t("market.labels.variety")} />
                 </SelectTrigger>
                 <SelectContent>
                   {varieties.map((variety) => (
@@ -243,6 +218,7 @@ export default function MarketPrice() {
             </div>
           </div>
 
+          {/* Buttons */}
           <div className="flex gap-3">
             <Button
               onClick={fetchMarketData}
@@ -252,12 +228,12 @@ export default function MarketPrice() {
               {marketLoading ? (
                 <>
                   <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                  Fetching...
+                  {t("market.buttons.fetching")}
                 </>
               ) : (
                 <>
                   <Database className="w-4 h-4 mr-2" />
-                  Get Market Data
+                  {t("market.buttons.fetch")}
                 </>
               )}
             </Button>
@@ -266,7 +242,7 @@ export default function MarketPrice() {
               onClick={resetForm}
               className="border-green-600 text-green-600 hover:bg-green-50 cursor-pointer"
             >
-              Reset
+              {t("market.buttons.reset")}
             </Button>
           </div>
         </CardContent>
@@ -277,7 +253,7 @@ export default function MarketPrice() {
         <CardHeader>
           <CardTitle className="text-green-900 flex items-center">
             <DollarSign className="w-5 h-5 mr-2" />
-            Market Prices
+            {t("market.title")}
             {selectedState && selectedDistrict && (
               <span className="text-sm font-normal text-green-600 ml-2">
                 ({selectedDistrict}, {selectedState})
@@ -289,7 +265,7 @@ export default function MarketPrice() {
           {marketLoading ? (
             <div className="flex flex-col items-center justify-center py-12">
               <RefreshCw className="w-8 h-8 animate-spin text-green-600 mb-4" />
-              <p className="text-green-700">Fetching market data...</p>
+              <p className="text-green-700">{t("market.status.loading")}</p>
             </div>
           ) : marketError ? (
             <div className="flex flex-col items-center justify-center py-12 text-red-600">
@@ -309,7 +285,7 @@ export default function MarketPrice() {
                         {crop.name}
                       </h3>
                       <p className="text-xs text-green-600">
-                        Arrival: {crop.arrivalDate || "N/A"}
+                        {t("market.labels.arrival")}: {crop.arrivalDate || "N/A"}
                       </p>
                     </div>
                     <div className="flex items-center">
@@ -353,11 +329,9 @@ export default function MarketPrice() {
             <div className="text-center py-12">
               <Database className="w-16 h-16 mx-auto mb-4 text-green-300" />
               <h3 className="text-lg font-medium text-green-900 mb-2">
-                No Market Data
+                {t("market.status.noDataTitle")}
               </h3>
-              <p className="text-green-600">
-                Select location and crop variety to fetch market prices
-              </p>
+              <p className="text-green-600">{t("market.status.noDataMessage")}</p>
             </div>
           )}
         </CardContent>
@@ -365,6 +339,3 @@ export default function MarketPrice() {
     </div>
   );
 }
-
-
-//https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645&offset=0&limit=all&format=csv&format=json

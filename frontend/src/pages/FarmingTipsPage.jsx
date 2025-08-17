@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -21,10 +22,10 @@ import {
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 
-
 const FarmingTipsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [expandedTip, setExpandedTip] = useState(null);
+  const { t } = useTranslation("farmingTips");
 
   const categories = [
     { id: "all", label: "All Tips", icon: BookOpen },
@@ -33,7 +34,7 @@ const FarmingTipsPage = () => {
     { id: "technology", label: "Modern Technology", icon: Target },
     { id: "water", label: "Water Management", icon: Droplets },
     { id: "soil", label: "Soil Health", icon: Sprout },
-  ];  
+  ];
 
   const farmingTips = [
     {
@@ -282,11 +283,10 @@ const FarmingTipsPage = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-green-900 mb-2">
-            Modern Farming Tips & Techniques
+            {t("title")}
           </h1>
           <p className="text-green-700 max-w-2xl mx-auto">
-            Discover cutting-edge agricultural practices to improve efficiency,
-            sustainability, and profitability in your farming operations
+            {t("subtitle")}
           </p>
         </div>
 
@@ -298,28 +298,28 @@ const FarmingTipsPage = () => {
               <div className="text-2xl font-bold text-green-900">
                 {farmingTips.length}
               </div>
-              <div className="text-sm text-green-600">Expert Tips</div>
+              <div className="text-sm text-green-600">{t("stats.tips")}</div>
             </CardContent>
           </Card>
           <Card className="backdrop-blur-md bg-white/70 border-white/20 shadow-lg text-center">
             <CardContent className="p-4">
               <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
               <div className="text-2xl font-bold text-green-900">30%</div>
-              <div className="text-sm text-green-600">Avg. Efficiency Gain</div>
+              <div className="text-sm text-green-600">{t("stats.efficiency")}</div>
             </CardContent>
           </Card>
           <Card className="backdrop-blur-md bg-white/70 border-white/20 shadow-lg text-center">
             <CardContent className="p-4">
               <Users className="w-8 h-8 text-green-600 mx-auto mb-2" />
               <div className="text-2xl font-bold text-green-900">10K+</div>
-              <div className="text-sm text-green-600">Farmers Helped</div>
+              <div className="text-sm text-green-600">{t("stats.farmers")}</div>
             </CardContent>
           </Card>
           <Card className="backdrop-blur-md bg-white/70 border-white/20 shadow-lg text-center">
             <CardContent className="p-4">
               <Shield className="w-8 h-8 text-green-600 mx-auto mb-2" />
               <div className="text-2xl font-bold text-green-900">100%</div>
-              <div className="text-sm text-green-600">Science-Based</div>
+              <div className="text-sm text-green-600">{t("stats.science")}</div>
             </CardContent>
           </Card>
         </div>
@@ -328,7 +328,7 @@ const FarmingTipsPage = () => {
         <Card className="backdrop-blur-md bg-white/70 border-white/20 shadow-lg mb-8">
           <CardContent className="p-6">
             <h3 className="text-lg font-semibold text-green-900 mb-4">
-              Browse by Category
+              {t("categoryHeader")}
             </h3>
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => {
@@ -336,9 +336,7 @@ const FarmingTipsPage = () => {
                 return (
                   <Button
                     key={category.id}
-                    variant={
-                      selectedCategory === category.id ? "default" : "outline"
-                    }
+                    variant={selectedCategory === category.id ? "default" : "outline"}
                     onClick={() => setSelectedCategory(category.id)}
                     className={`${
                       selectedCategory === category.id
@@ -347,7 +345,7 @@ const FarmingTipsPage = () => {
                     } cursor-pointer`}
                   >
                     <Icon className="w-4 h-4 mr-2" />
-                    {category.label}
+                    {t(`categories.${category.id}`)}
                   </Button>
                 );
               })}
@@ -460,9 +458,11 @@ const FarmingTipsPage = () => {
                     onClick={() => setExpandedTip(isExpanded ? null : tip.id)}
                     className="w-full text-green-600 hover:text-green-700 hover:bg-green-50"
                   >
-                    {isExpanded ? "Show Less" : "Learn More"}
+                    {isExpanded ? t("showLess") : t("learnMore")}
                     <ChevronRight
-                      className={`w-4 h-4 ml-1 transition-transform ${isExpanded ? "rotate-90" : ""}`}
+                      className={`w-4 h-4 ml-1 transition-transform ${
+                        isExpanded ? "rotate-90" : ""
+                      }`}
                     />
                   </Button>
                 </CardContent>
@@ -476,22 +476,20 @@ const FarmingTipsPage = () => {
           <CardContent className="p-8 text-center">
             <Lightbulb className="w-12 h-12 text-green-600 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-green-900 mb-2">
-              Want to contribute your farming knowledge?
+              {t("cta.title")}
             </h3>
             <p className="text-green-700 mb-6 max-w-2xl mx-auto">
-              Share your experiences and help fellow farmers by contributing
-              your own tips and techniques. Together, we can build a stronger
-              agricultural community.
+              {t("cta.desc")}
             </p>
             <Button className="bg-green-600 hover:bg-green-700">
               <Play className="w-4 h-4 mr-2" />
-              Share Your Tips
+              {t("cta.button")}
             </Button>
           </CardContent>
         </Card>
       </div>
     </div>
   );
-}
+};
 
 export default FarmingTipsPage;

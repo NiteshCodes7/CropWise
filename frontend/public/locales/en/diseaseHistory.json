@@ -1,0 +1,9 @@
+{
+    "title": "Detection History",
+    "subTitle" : "View and manage your crop disease detection history",
+    "detect" : "Your Detection History",
+    "noHistory" : "No detection history yet",
+    "start" : "Start by uploading and analyzing crop images to build your history",
+    "upload" : "Upload Crop Photo",
+    "resolved": "Mark as Resolved"
+}

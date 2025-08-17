@@ -1,0 +1,23 @@
+{
+    "title": "Detect Your Crop Disease with AI",
+    "subtitle": "Upload an image of your crop to detect diseases and get instant analysis",
+    "uploadPanel": "Upload Image",
+    "resultPanel": "Detection Results",
+    "preview": "Preview:",
+    "chooseAnother": "Choose Another Image",
+    "dragDrop": "Drag & drop your image here or click to browse",
+    "dropHere": "Drop the image here...",
+    "fileInfo": "JPG, PNG formats only. Max size: 5MB.",
+    "analyzeButton": "Analyze Image",
+    "analyzing": "Analyzing...",
+    "noResults": "No uploads yet. Your results will appear here.",
+    "disease": "Disease",
+    "confidence": "Confidence",
+    "symptoms": "Symptoms",
+    "cause": "Cause",
+    "treatment": "Treatment",
+    "prevention": "Prevention",
+    "uploadError": "❌ Failed to analyze image. Please try again.",
+    "locationError": "⚠️ Unable to get location.",
+    "uploadedOn": "Uploaded on"
+  }

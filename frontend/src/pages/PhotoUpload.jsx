@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useDropzone } from "react-dropzone";
+import { useTranslation } from "react-i18next";
 
 // Gemini solution parser
 const parseGeminiSolution = (text) => {
@@ -43,6 +44,7 @@ const PhotoUpload = () => {
   const [loading, setLoading] = useState(false);
   const [location, setLocation] = useState(null);
   const { getToken } = useAuth();
+  const { t } = useTranslation("upload");
 
   const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
@@ -91,7 +93,7 @@ const PhotoUpload = () => {
       setPreviewUrl(null);
     } catch (err) {
       console.error("Upload error:", err);
-      alert("❌ Failed to analyze image. Please try again.");
+      alert(t("uploadError"));
     } finally {
       setLoading(false);
     }
@@ -106,10 +108,10 @@ const PhotoUpload = () => {
         });
       },
       () => {
-        alert("⚠️ Unable to get location.");
+        alert(t("locationError"));
       }
     );
-  }, []);
+  }, [t]);
 
   return (
     <>
@@ -118,12 +120,9 @@ const PhotoUpload = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold text-green-900 mb-2">
-              Detect Your Crop Disease with AI
+              {t("title")}
             </h1>
-            <p className="text-green-700">
-              Upload an image of your crop to detect diseases and get instant
-              analysis
-            </p>
+            <p className="text-green-700">{t("subtitle")}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -132,7 +131,7 @@ const PhotoUpload = () => {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Camera className="w-5 h-5" />
-                  <span>Upload Image</span>
+                  <span>{t("uploadPanel")}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -152,26 +151,24 @@ const PhotoUpload = () => {
                     <input {...getInputProps()} />
                     {previewUrl ? (
                       <div className="space-y-4">
-                        <h3 className="font-medium">Preview:</h3>
+                        <h3 className="font-medium">{t("preview")}</h3>
                         <img
                           src={previewUrl}
                           alt="Preview"
                           className="max-w-xs mx-auto rounded shadow"
                         />
                         <span className="text-green-600 underline text-sm">
-                          Choose Another Image
+                          {t("chooseAnother")}
                         </span>
                       </div>
                     ) : (
                       <>
                         <ImageIcon className="w-12 h-12 text-green-400 mx-auto mb-4" />
                         <p className="text-green-600 text-sm">
-                          {isDragActive
-                            ? "Drop the image here..."
-                            : "Drag & drop your image here or click to browse"}
+                          {isDragActive ? t("dropHere") : t("dragDrop")}
                         </p>
                         <p className="text-xs text-green-500 mt-2">
-                          JPG, PNG formats only. Max size: 5MB.
+                          {t("fileInfo")}
                         </p>
                       </>
                     )}
@@ -184,7 +181,7 @@ const PhotoUpload = () => {
                       loading ? "cursor-not-allowed" : "cursor-pointer"
                     }`}
                   >
-                    {loading ? "Analyzing..." : "Analyze Image"}
+                    {loading ? t("analyzing") : t("analyzeButton")}
                   </Button>
                 </form>
               </CardContent>
@@ -195,14 +192,14 @@ const PhotoUpload = () => {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5" />
-                  <span>Detection Results</span>
+                  <span>{t("resultPanel")}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {!detectionResult ? (
                   <div className="text-center py-12 text-green-600">
                     <ImageIcon className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                    <p>No uploads yet. Your results will appear here.</p>
+                    <p>{t("noResults")}</p>
                   </div>
                 ) : (
                   <div className="space-y-4">
@@ -213,35 +210,34 @@ const PhotoUpload = () => {
                     />
                     <div className="flex flex-col justify-center items-center gap-3">
                       <h2 className="text-lg font-bold text-red-700">
-                        🦠 Disease:{" "}
+                        🦠 {t("disease")}:{" "}
                         {detectionResult.parsed.diseaseName || "Unknown"}
                       </h2>
                       <Badge className="bg-green-500">
-                        Confidence:{" "}{detectionResult.confidence}%
+                        {t("confidence")}: {detectionResult.confidence}%
                       </Badge>
                     </div>
                     <div className="space-y-2 text-sm text-green-700">
                       <p>
-                        <strong>🌾 Symptoms:</strong>{" "}
+                        <strong>🌾 {t("symptoms")}:</strong>{" "}
                         {detectionResult.parsed.symptoms || "N/A"}
                       </p>
                       <p>
-                        <strong>🧪 Cause:</strong>{" "}
+                        <strong>🧪 {t("cause")}:</strong>{" "}
                         {detectionResult.parsed.cause || "N/A"}
                       </p>
                       <p>
-                        <strong>🌿 Treatment:</strong>{" "}
+                        <strong>🌿 {t("treatment")}:</strong>{" "}
                         {detectionResult.parsed.treatment || "N/A"}
                       </p>
                       <p>
-                        <strong>🛡️ Prevention:</strong>{" "}
+                        <strong>🛡️ {t("prevention")}:</strong>{" "}
                         {detectionResult.parsed.prevention || "N/A"}
                       </p>
-        
                     </div>
 
                     <div className="text-gray-400 text-xs text-center mt-4">
-                      Uploaded on: {new Date().toISOString().split("T")[0]}
+                      {t("uploadedOn")}: {new Date().toISOString().split("T")[0]}
                     </div>
                   </div>
                 )}

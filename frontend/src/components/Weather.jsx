@@ -19,10 +19,13 @@ import {
   RefreshCw,
   AlertCircle,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const WEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 export default function Weather() {
+  const { t } = useTranslation("weather");
+
   const [location, setLocation] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
   const [weatherData, setWeatherData] = useState(null);
@@ -52,9 +55,9 @@ export default function Weather() {
       } else {
         const pos = await new Promise((resolve, reject) =>
           navigator.geolocation.getCurrentPosition(resolve, reject, {
-              enableHighAccuracy: true, 
-              timeout: 10000,
-              maximumAge: 0
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0,
           })
         );
         lat = pos.coords.latitude;
@@ -63,7 +66,7 @@ export default function Weather() {
       }
 
       const currentRes = await fetch(queryUrl);
-      if (!currentRes.ok) throw new Error("Weather data not found");
+      if (!currentRes.ok) throw new Error(t("error"));
       const current = await currentRes.json();
 
       if (!lat || !lon) {
@@ -75,8 +78,6 @@ export default function Weather() {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`
       );
       const forecastData = forecastRes.ok ? await forecastRes.json() : null;
-
-      console.log(forecastData)
 
       const iconComponent = getWeatherIcon(current.weather[0].icon);
 
@@ -137,7 +138,7 @@ export default function Weather() {
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-green-900 flex items-center">
         <Cloud className="w-6 h-6 mr-2" />
-        Weather Conditions
+        {t("title")}
       </h2>
 
       {/* Search Box */}
@@ -146,12 +147,12 @@ export default function Weather() {
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <div className="flex items-center text-green-700">
               <MapPin className="w-5 h-5 mr-2" />
-              <span className="font-medium">Location:</span>
+              <span className="font-medium">{t("location")}</span>
               <span className="ml-2 font-semibold">{location}</span>
             </div>
             <div className="flex gap-2 flex-1 max-w-md">
               <Input
-                placeholder="Search location..."
+                placeholder={t("search_placeholder")}
                 value={searchLocation}
                 onChange={(e) => setSearchLocation(e.target.value)}
                 onKeyPress={(e) =>
@@ -177,7 +178,7 @@ export default function Weather() {
                   weatherLoading ? "animate-spin" : ""
                 }`}
               />
-              Refresh
+              {t("refresh")}
             </Button>
           </div>
         </CardContent>
@@ -186,12 +187,13 @@ export default function Weather() {
       {/* Current Weather */}
       <Card className="backdrop-blur-md bg-white/70 border-white/20 shadow-lg">
         <CardHeader>
-          <CardTitle className="text-green-900">Current Weather</CardTitle>
+          <CardTitle className="text-green-900">{t("current_weather")}</CardTitle>
         </CardHeader>
         <CardContent>
           {weatherLoading ? (
             <div className="flex items-center justify-center py-8">
               <RefreshCw className="w-6 h-6 animate-spin text-green-600" />
+              <span className="ml-2 text-green-700 text-sm">{t("loading")}</span>
             </div>
           ) : weatherError ? (
             <div className="flex items-center justify-center py-8 text-red-600">
@@ -217,25 +219,25 @@ export default function Weather() {
                 <div className="flex items-center text-green-700">
                   <Droplets className="w-4 h-4 mr-2" />
                   <span className="text-sm">
-                    Humidity: {weatherData.current.humidity}%
+                    {t("humidity")}: {weatherData.current.humidity}%
                   </span>
                 </div>
                 <div className="flex items-center text-green-700">
                   <Wind className="w-4 h-4 mr-2" />
                   <span className="text-sm">
-                    Wind: {weatherData.current.windSpeed} km/h
+                    {t("wind")}: {weatherData.current.windSpeed} km/h
                   </span>
                 </div>
                 <div className="flex items-center text-green-700">
                   <Eye className="w-4 h-4 mr-2" />
                   <span className="text-sm">
-                    Visibility: {weatherData.current.visibility} km
+                    {t("visibility")}: {weatherData.current.visibility} km
                   </span>
                 </div>
                 <div className="flex items-center text-green-700">
                   <Sun className="w-4 h-4 mr-2" />
                   <span className="text-sm">
-                    UV Index: {weatherData.current.uvIndex}
+                    {t("uv_index")}: {weatherData.current.uvIndex}
                   </span>
                 </div>
               </div>
@@ -247,7 +249,7 @@ export default function Weather() {
       {/* 5-Day Forecast */}
       <Card className="backdrop-blur-md bg-white/70 border-white/20 shadow-lg">
         <CardHeader>
-          <CardTitle className="text-green-900">5-Day Forecast</CardTitle>
+          <CardTitle className="text-green-900">{t("forecast_title")}</CardTitle>
         </CardHeader>
         <CardContent>
           {weatherData?.forecast.length > 0 ? (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CalendarDays } from "lucide-react";
 import axios from "axios";
 import { useAuth } from "@clerk/clerk-react";
+import { useTranslation } from "react-i18next";
 
 export default function CalendarSection() {
   const [crop, setCrop] = useState("");
@@ -11,6 +12,8 @@ export default function CalendarSection() {
   const [loading, setLoading] = useState(true);
   const [submitLoading, setSubmitLoading] = useState(false);
   const { getToken } = useAuth();
+  const { t } = useTranslation("dashboard");
+  
 
   const fetchCalendars = async () => {
     const token = await getToken();
@@ -60,7 +63,7 @@ export default function CalendarSection() {
     <div className="bg-white/70 backdrop-blur rounded-xl p-6 shadow-lg">
       <div className="flex items-center text-green-900 mb-4">
         <CalendarDays className="w-5 h-5 mr-2 text-green-700" />
-        <h2 className="text-xl font-semibold">AI Farming Calendar</h2>
+        <h2 className="text-xl font-semibold">{t("calendar.heading")}</h2>
       </div>
 
       <form
@@ -87,16 +90,16 @@ export default function CalendarSection() {
           type="submit"
           className={`${submitLoading ? "bg-green-200 cursor-not-allowed" : "bg-green-600" }  text-white px-4 py-2 rounded`}
         >
-          {`${submitLoading ? "Loading..." : "Generate Calendar"}`}
+          {`${submitLoading ? "Loading..." : t("calendar.form.generate")}`}
         </button>
       </form>
 
       <div className="mt-6">
         <h3 className="font-semibold text-green-800 mb-2">Saved Calendars</h3>
         {loading ? (
-          <p className="text-sm text-gray-500">Loading...</p>
+          <p className="text-sm text-gray-500">{t("loading")}</p>
         ) : allCalendars.length === 0 ? (
-          <p className="text-sm text-gray-500">No calendar entries yet.</p>
+          <p className="text-sm text-gray-500">{t("empty")}</p>
         ) : (
           allCalendars.map((entry) => {
             const isOpen = openCardId === entry._id;

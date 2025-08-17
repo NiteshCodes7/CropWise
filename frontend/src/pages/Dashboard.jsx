@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar.jsx";
 import CalendarSection from "../components/CalendarSection.jsx";
 import SoilScanner from "../components/SoilScanner.jsx";
 import SmsAdvisory from "../components/SmsAdvisory.jsx";
+import { useTranslation } from "react-i18next";
 
 export default function CropWiseDashboard() {
   const [crop, setCrop] = useState("");
@@ -17,6 +18,7 @@ export default function CropWiseDashboard() {
   const [loading, setLoading] = useState(true);
   const [previewUrl, setPreviewUrl] = useState(null);
   const { getToken } = useAuth();
+  const { t } = useTranslation("dashboard");
 
   const handleCalendar = async (e) => {
     e.preventDefault();
@@ -65,9 +67,9 @@ export default function CropWiseDashboard() {
           {/* Header */}
           <div className="text-center">
             <h1 className="text-3xl font-bold text-green-900 flex justify-center items-center">
-              CropWise Dashboard
+              {t("title")}
             </h1>
-            <p className="text-green-700">Smart Planning. AI Powered Farming Tools.</p>
+            <p className="text-green-700">{t("subtitle")}</p>
           </div>
 
           {/* Calendar Section */}

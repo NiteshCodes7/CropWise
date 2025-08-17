@@ -1,0 +1,26 @@
+{
+  "title": "Modern Farming Tips & Techniques",
+  "subtitle": "Discover cutting-edge agricultural practices to improve efficiency, sustainability, and profitability in your farming operations",
+  "stats": {
+    "tips": "Expert Tips",
+    "efficiency": "Avg. Efficiency Gain",
+    "farmers": "Farmers Helped",
+    "science": "Science-Based"
+  },
+  "categoryHeader": "Browse by Category",
+  "categories": {
+    "all": "All Tips",
+    "fertilizer": "Fertilizer Efficiency",
+    "sustainable": "Sustainable Farming",
+    "technology": "Modern Technology",
+    "water": "Water Management",
+    "soil": "Soil Health"
+  },
+  "learnMore": "Learn More",
+  "showLess": "Show Less",
+  "cta": {
+    "title": "Want to contribute your farming knowledge?",
+    "desc": "Share your experiences and help fellow farmers by contributing your own tips and techniques. Together, we can build a stronger agricultural community.",
+    "button": "Share Your Tips"
+  }
+}

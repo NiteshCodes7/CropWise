@@ -121,10 +121,6 @@ The backend for CropWise powers the core business logic, data storage, and API e
 - ![Nodemailer](https://img.shields.io/badge/Nodemailer-009688?style=for-the-badge&logo=maildotru&logoColor=white) **Email Service:** Nodemailer (for sending transactional emails)
 - ![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white) **SMS Service:** Twilio (for sending SMS alerts and notifications)
 - ![dotenv](https://img.shields.io/badge/dotenv-8DD6F9?style=for-the-badge&logo=dotenv&logoColor=white) **Environment Variables:** dotenv (for managing configuration)
-- ![Winston](https://img.shields.io/badge/Winston-4B4B4B?style=for-the-badge&logo=winston&logoColor=white) **Logging:** Winston (for application logging)
-- ![Joi](https://img.shields.io/badge/Joi-00B8D4?style=for-the-badge&logo=data&logoColor=white) **Validation:** Joi (for request data validation)
-- ![Helmet](https://img.shields.io/badge/Helmet-000000?style=for-the-badge&logo=helmet&logoColor=white) **Security:** Helmet (for securing HTTP headers), CORS (for cross-origin requests)
-- ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white) ![Supertest](https://img.shields.io/badge/Supertest-333333?style=for-the-badge&logo=supertest&logoColor=white) **Testing:** Jest, Supertest (for backend testing)
 - ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black) **API Documentation:** Swagger (for documenting RESTful APIs)
 - ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) **Linting & Formatting:** ESLint, Prettier (for code quality and consistency)
 

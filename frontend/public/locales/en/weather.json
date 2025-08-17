@@ -1,0 +1,37 @@
+{
+  "title": "Weather Conditions",
+  "location": "Location:",
+  "search_placeholder": "Search location...",
+  "refresh": "Refresh",
+  "current_weather": "Current Weather",
+  "humidity": "Humidity",
+  "wind": "Wind",
+  "visibility": "Visibility",
+  "uv_index": "UV Index",
+  "forecast_title": "5-Day Forecast",
+  "loading": "Loading...",
+  "error": "Unable to fetch weather data",
+  "market": {
+    "title": "Crop Market Prices",
+    "filterTitle": "Get Market Data",
+    "labels": {
+      "state": "State",
+      "district": "District",
+      "variety": "Crop Variety",
+      "arrival": "Arrival",
+      "unit": "per quintal",
+      "required": "Select {{field}}"
+    }
+  },
+    "buttons": {
+      "fetch": "Get Market Data",
+      "fetching": "Fetching...",
+      "reset": "Reset"
+    },
+    "status": {
+      "loading": "Fetching market data...",
+      "noDataTitle": "No Market Data",
+      "noDataMessage": "Select location and crop variety to fetch market prices",
+      "error": "Market data unavailable"
+    }
+}

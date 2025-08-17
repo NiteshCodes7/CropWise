@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useDropzone } from "react-dropzone";
 import { useAuth } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function SoilScanner() {
   const [soilFile, setSoilFile] = useState(null);
@@ -14,6 +15,8 @@ export default function SoilScanner() {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [detectUrl, setDetectUrl] = useState(null);
   const { getToken } = useAuth();
+  const { t } = useTranslation("dashboard");
+  
 
   const navigate = useNavigate();
 
@@ -75,7 +78,7 @@ export default function SoilScanner() {
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <Camera className="w-5 h-5" />
-            <span>Upload Image</span>
+            <span>{t("soil.upload")}</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col justify-center items-center w-full space-y-2">
@@ -95,7 +98,7 @@ export default function SoilScanner() {
               <input {...getInputProps()} />
               {previewUrl ? (
                 <div className="space-y-4">
-                  <h3 className="font-medium">Preview:</h3>
+                  <h3 className="font-medium">{t("soil.preview")}:</h3>
                   <img
                     src={previewUrl}
                     alt="Preview"
@@ -127,14 +130,14 @@ export default function SoilScanner() {
                 loading ? "cursor-not-allowed" : "cursor-pointer"
               }`}
             >
-              {loading ? "Analyzing..." : "Analyze Image"}
+              {loading ? "Analyzing..." : t("soil.analyze")}
             </Button>
           </form>
 
           <p className="font-bold">OR</p>
 
           <Button className="bg-green-600 hover:scale-110 hover:bg-green-700 cursor-pointer" onClick={() => navigate("/soil-history")}>
-            <DatabaseIcon />Get Soil History
+            <DatabaseIcon />{t("soil.history")}
           </Button>
         </CardContent>
       </Card>
@@ -144,7 +147,7 @@ export default function SoilScanner() {
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <FlaskConical className="w-5 h-5" />
-            <span>Soil Quality Prediction Results</span>
+            <span>{t("soil.previewTitle")}</span>
           </CardTitle>
         </CardHeader>
         <CardContent>

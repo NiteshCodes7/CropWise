@@ -1,0 +1,24 @@
+{
+  "title": "CropWise Dashboard",
+  "subtitle": "Your AI-powered farming companion for smart decisions.",
+  "calendar": {
+    "heading": "AI Farming Calendar",
+    "form": {
+      "crop": "Enter Crop",
+      "location": "Enter Location",
+      "generate": "Generate Calendar"
+    },
+    "loading": "Loading calendars...",
+    "empty": "No calendars generated yet."
+  },
+  "soil": {
+    "previewTitle" : "Soil Quality Prediction Results",
+    "upload": "Upload Soil Image",
+    "preview": "Preview",
+    "analyze": "Analyze Soil",
+    "history": "Get Soil History"
+  },
+  "sms": {
+    "heading": "SMS-Based AI Advisory"
+  }
+}
