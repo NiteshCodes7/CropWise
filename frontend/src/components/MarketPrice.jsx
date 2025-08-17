@@ -47,9 +47,9 @@ export default function MarketPrice() {
   // Fetch Market Data
   const fetchMarketData = async () => {
     const errors = {};
-    if (!selectedState) errors.state = t("labels.required", { field: t("labels.state") });
-    if (!selectedDistrict) errors.district = t("labels.required", { field: t("labels.district") });
-    if (!selectedVariety) errors.variety = t("labels.required", { field: t("labels.variety") });
+    if (!selectedState) errors.state = "Required";
+    if (!selectedDistrict) errors.district = "Required";
+    if (!selectedVariety) errors.variety = "Required";
 
     setFormErrors(errors);
     if (Object.keys(errors).length > 0) return;
