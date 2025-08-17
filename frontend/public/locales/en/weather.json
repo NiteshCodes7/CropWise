@@ -21,8 +21,7 @@
       "arrival": "Arrival",
       "unit": "per quintal",
       "required": "Select {{field}}"
-    }
-  },
+    },
     "buttons": {
       "fetch": "Get Market Data",
       "fetching": "Fetching...",
@@ -34,4 +33,6 @@
       "noDataMessage": "Select location and crop variety to fetch market prices",
       "error": "Market data unavailable"
     }
+  }
+    
 }
