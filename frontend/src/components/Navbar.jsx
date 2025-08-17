@@ -169,7 +169,7 @@ export default function Navbar({ className }) {
                 onClick={handleClick}
                 className="text-green-700 hover:text-green-900 flex items-center gap-2"
               >
-                <Camera /> {t("diseaseMap")}
+                <Camera /> {t("photoUpload")}
               </Link>
             </li>
             <li>

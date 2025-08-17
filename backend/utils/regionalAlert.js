@@ -62,7 +62,7 @@ cron.schedule("0 */6 * * *", async () => {
 
     // Step 2: For each region with over 100 cases, send alerts
     for (const region of diagnoses) {
-      if (region.uniqueUserCount >= 2) {
+      if (region.uniqueUserCount >= 100) {
 
         const seenEmails = new Set();
         const seenPhone = new Set();
@@ -81,13 +81,13 @@ cron.schedule("0 */6 * * *", async () => {
 
           const phone = formatPhoneNumber(user.phone);
 
-          // if(phone && !seenPhone.has(phone)){
-          //   await sendSMSAlert(phone, region._id.region, region._id.disease);
-          //   seenPhone.add(phone);
-          //   console.log(`SMS sent to ${phone}`)
-          // }else {
-          //   console.warn(`⚠️ No phone found for user ${user._id.userId}`);
-          // }
+          if(phone && !seenPhone.has(phone)){
+            await sendSMSAlert(phone, region._id.region, region._id.disease);
+            seenPhone.add(phone);
+            console.log(`SMS sent to ${phone}`)
+          }else {
+            console.warn(`⚠️ No phone found for user ${user._id.userId}`);
+          }
         }
       }
 

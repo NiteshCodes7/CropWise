@@ -4,6 +4,18 @@ CropWise is a web application designed to help farmers and agricultural professi
 
 **CropWise supports multiple languages, making it accessible to users from diverse regions.**
 
+## Demo
+
+### Video Overview
+
+[![Watch the demo video]](./frontend/public/demovideo.mp4)
+> _Click the image above to watch a short demo of CropWise in action._
+
+### App Screenshot
+
+![CropWise App Screenshot](./frontend/public/demoss.png)
+> _A preview of the CropWise dashboard interface._
+
 ## Features
 
 - User authentication and profile management
@@ -47,7 +59,8 @@ CropWise is a web application designed to help farmers and agricultural professi
 ```
 frontend/
 ├── public/
-│   └── logo.png
+│   ├── logo.png
+│   └── app-screenshot.png
 ├── src/
 │   ├── components/
 │   ├── pages/
