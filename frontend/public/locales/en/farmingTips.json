@@ -22,5 +22,107 @@
     "title": "Want to contribute your farming knowledge?",
     "desc": "Share your experiences and help fellow farmers by contributing your own tips and techniques. Together, we can build a stronger agricultural community.",
     "button": "Share Your Tips"
-  }
+  },
+  "Description" : "Description",
+  "Key Benefits" : "Key Benefits",
+  "Implementation Steps" : "Implementation Steps",
+  "Required Tools" :  "Required Tools",
+  "farmingTips": [
+    {
+      "id": 1,
+      "category": "fertilizer",
+      "title": "Precision Fertilizer Application",
+      "level": "Intermediate",
+      "readTime": "5 min",
+      "summary": "Optimize nutrient delivery with GPS-guided variable rate technology",
+      "description": "Use soil testing and GPS technology to apply fertilizers only where needed. This reduces costs by 15-30% while improving crop yields and reducing environmental impact.",
+      "benefits": ["Reduce fertilizer costs by 15-30%", "Improve crop yields", "Minimize environmental impact", "Better nutrient uptake"],
+      "steps": ["Conduct detailed soil testing across different field zones", "Use GPS-guided equipment for variable rate application", "Monitor soil pH and adjust accordingly", "Track application rates and crop response"],
+      "tools": ["GPS-guided spreaders", "Soil test kits", "Variable rate controllers"]
+    },
+    {
+      "id": 2,
+      "category": "fertilizer",
+      "title": "Organic Matter Enhancement",
+      "level": "Beginner",
+      "readTime": "4 min",
+      "summary": "Boost soil fertility naturally with composting and cover crops",
+      "description": "Increase soil organic matter to improve nutrient retention and reduce fertilizer dependency. Organic matter acts as a slow-release nutrient source.",
+      "benefits": ["Improved nutrient retention", "Better soil structure", "Reduced fertilizer dependency", "Enhanced water holding capacity"],
+      "steps": ["Incorporate compost into soil preparation", "Plant cover crops during off-seasons", "Use crop residues as natural fertilizer", "Practice regular crop rotation"],
+      "tools": ["Compost bins", "Cover crop seeds", "Soil amendments"]
+    },
+    {
+      "id": 3,
+      "category": "sustainable",
+      "title": "Integrated Pest Management (IPM)",
+      "level": "Advanced",
+      "readTime": "7 min",
+      "summary": "Reduce pesticide use while maintaining effective pest control",
+      "description": "Combine biological, cultural, and chemical controls to manage pests sustainably. This approach reduces pesticide resistance and protects beneficial insects.",
+      "benefits": ["Reduced pesticide costs", "Environmental protection", "Sustained pest control", "Preserved beneficial insects"],
+      "steps": ["Monitor pest populations regularly", "Introduce beneficial insects", "Use targeted, selective pesticides only when necessary", "Implement crop rotation and resistant varieties"],
+      "tools": ["Pest monitoring traps", "Beneficial insect releases", "Selective pesticides"]
+    },
+    {
+      "id": 4,
+      "category": "technology",
+      "title": "Drone-Based Crop Monitoring",
+      "level": "Advanced",
+      "readTime": "6 min",
+      "summary": "Use aerial imagery for early problem detection and yield optimization",
+      "description": "Deploy drones equipped with multispectral cameras to identify issues before they become visible to the naked eye. Early detection saves crops and resources.",
+      "benefits": ["Early problem detection", "Precise field mapping", "Reduced crop losses", "Data-driven decisions"],
+      "steps": ["Plan regular flight patterns over fields", "Analyze multispectral imagery for stress indicators", "Create field health maps", "Target interventions to specific areas"],
+      "tools": ["Agricultural drones", "Multispectral cameras", "Image analysis software"]
+    },
+    {
+      "id": 5,
+      "category": "water",
+      "title": "Smart Irrigation Systems",
+      "level": "Intermediate",
+      "readTime": "5 min",
+      "summary": "Automate irrigation based on soil moisture and weather data",
+      "description": "Install smart irrigation systems that adjust watering schedules based on real-time soil moisture, weather forecasts, and crop growth stages.",
+      "benefits": ["Water savings up to 40%", "Improved crop quality", "Reduced labor costs", "Prevented over/under watering"],
+      "steps": ["Install soil moisture sensors at multiple depths", "Connect to weather data services", "Program irrigation schedules by crop growth stage", "Monitor and adjust based on performance data"],
+      "tools": ["Soil moisture sensors", "Automated irrigation controllers", "Weather stations"]
+    },
+    {
+      "id": 6,
+      "category": "soil",
+      "title": "No-Till Farming Practices",
+      "level": "Intermediate",
+      "readTime": "6 min",
+      "summary": "Preserve soil structure and reduce erosion with minimal tillage",
+      "description": "Reduce or eliminate tillage to maintain soil structure, increase organic matter, and reduce erosion. This practice improves long-term soil health.",
+      "benefits": ["Reduced soil erosion", "Improved soil structure", "Lower fuel costs", "Increased biodiversity"],
+      "steps": ["Use cover crops to protect soil surface", "Implement direct seeding techniques", "Manage residues effectively", "Control weeds with targeted herbicides or cultivation"],
+      "tools": ["No-till planters", "Cover crop seeds", "Residue management equipment"]
+    },
+    {
+      "id": 7,
+      "category": "technology",
+      "title": "AI-Powered Crop Prediction",
+      "level": "Advanced",
+      "readTime": "8 min",
+      "summary": "Leverage artificial intelligence for yield forecasting and risk management",
+      "description": "Use AI algorithms to analyze historical data, weather patterns, and field conditions to predict yields and identify potential risks before they impact production.",
+      "benefits": ["Accurate yield forecasting", "Risk mitigation", "Optimized resource allocation", "Better market planning"],
+      "steps": ["Collect historical yield and weather data", "Install IoT sensors for real-time field monitoring", "Train AI models with local data", "Generate predictive reports for decision making"],
+      "tools": ["IoT sensors", "AI software platforms", "Data analytics tools"]
+    },
+    {
+      "id": 8,
+      "category": "sustainable",
+      "title": "Crop Rotation Optimization",
+      "level": "Beginner",
+      "readTime": "4 min",
+      "summary": "Maximize soil health and yields through strategic crop sequencing",
+      "description": "Plan multi-year crop rotations to break pest cycles, improve soil fertility, and maximize profitability while maintaining sustainable practices.",
+      "benefits": ["Improved soil fertility", "Reduced pest pressure", "Better disease control", "Increased profitability"],
+      "steps": ["Plan 3-4 year rotation cycles", "Include nitrogen-fixing legumes", "Consider market demands and prices", "Monitor soil health improvements"],
+      "tools": ["Crop planning software", "Soil test kits", "Market analysis tools"]
+    }
+  ]
 }

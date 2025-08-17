@@ -40,215 +40,98 @@ const FarmingTipsPage = () => {
     {
       id: 1,
       category: "fertilizer",
-      title: "Precision Fertilizer Application",
-      level: "Intermediate",
-      readTime: "5 min",
-      summary:
-        "Optimize nutrient delivery with GPS-guided variable rate technology",
-      description:
-        "Use soil testing and GPS technology to apply fertilizers only where needed. This reduces costs by 15-30% while improving crop yields and reducing environmental impact.",
-      benefits: [
-        "Reduce fertilizer costs by 15-30%",
-        "Improve crop yields",
-        "Minimize environmental impact",
-        "Better nutrient uptake",
-      ],
-      steps: [
-        "Conduct detailed soil testing across different field zones",
-        "Use GPS-guided equipment for variable rate application",
-        "Monitor soil pH and adjust accordingly",
-        "Track application rates and crop response",
-      ],
-      tools: [
-        "GPS-guided spreaders",
-        "Soil test kits",
-        "Variable rate controllers",
-      ],
+      title: t("farmingTips.0.title"),
+    level: t("farmingTips.0.level"),
+    readTime: t("farmingTips.0.readTime"),
+    summary: t("farmingTips.0.summary"),
+    description: t("farmingTips.0.description"),
+      benefits: t("farmingTips.0.benefits", { returnObjects: true }),
+      steps: t("farmingTips.0.steps", { returnObjects: true }),
+      tools: t("farmingTips.0.tools", { returnObjects: true }),
     },
     {
       id: 2,
       category: "fertilizer",
-      title: "Organic Matter Enhancement",
-      level: "Beginner",
-      readTime: "4 min",
-      summary: "Boost soil fertility naturally with composting and cover crops",
-      description:
-        "Increase soil organic matter to improve nutrient retention and reduce fertilizer dependency. Organic matter acts as a slow-release nutrient source.",
-      benefits: [
-        "Improved nutrient retention",
-        "Better soil structure",
-        "Reduced fertilizer dependency",
-        "Enhanced water holding capacity",
-      ],
-      steps: [
-        "Incorporate compost into soil preparation",
-        "Plant cover crops during off-seasons",
-        "Use crop residues as natural fertilizer",
-        "Practice regular crop rotation",
-      ],
-      tools: ["Compost bins", "Cover crop seeds", "Soil amendments"],
+      title: t("farmingTips.1.title"),
+    level: t("farmingTips.1.level"),
+    readTime: t("farmingTips.1.readTime"),
+    summary: t("farmingTips.1.summary"),
+    description: t("farmingTips.1.description"),
+      benefits: t("farmingTips.1.benefits", { returnObjects: true }),
+      steps: t("farmingTips.1.steps", { returnObjects: true }),
+      tools: t("farmingTips.1.tools", { returnObjects: true }),
     },
     {
       id: 3,
       category: "sustainable",
-      title: "Integrated Pest Management (IPM)",
-      level: "Advanced",
-      readTime: "7 min",
-      summary: "Reduce pesticide use while maintaining effective pest control",
-      description:
-        "Combine biological, cultural, and chemical controls to manage pests sustainably. This approach reduces pesticide resistance and protects beneficial insects.",
-      benefits: [
-        "Reduced pesticide costs",
-        "Environmental protection",
-        "Sustained pest control",
-        "Preserved beneficial insects",
-      ],
-      steps: [
-        "Monitor pest populations regularly",
-        "Introduce beneficial insects",
-        "Use targeted, selective pesticides only when necessary",
-        "Implement crop rotation and resistant varieties",
-      ],
-      tools: [
-        "Pest monitoring traps",
-        "Beneficial insect releases",
-        "Selective pesticides",
-      ],
+      title: t("farmingTips.2.title"),
+    level: t("farmingTips.2.level"),
+    readTime: t("farmingTips.2.readTime"),
+    summary: t("farmingTips.2.summary"),
+    description: t("farmingTips.2.description"),
+      benefits: t("farmingTips.2.benefits", { returnObjects: true }),
+      steps: t("farmingTips.2.steps", { returnObjects: true }),
+      tools: t("farmingTips.2.tools", { returnObjects: true }),
     },
     {
       id: 4,
       category: "technology",
-      title: "Drone-Based Crop Monitoring",
-      level: "Advanced",
-      readTime: "6 min",
-      summary:
-        "Use aerial imagery for early problem detection and yield optimization",
-      description:
-        "Deploy drones equipped with multispectral cameras to identify issues before they become visible to the naked eye. Early detection saves crops and resources.",
-      benefits: [
-        "Early problem detection",
-        "Precise field mapping",
-        "Reduced crop losses",
-        "Data-driven decisions",
-      ],
-      steps: [
-        "Plan regular flight patterns over fields",
-        "Analyze multispectral imagery for stress indicators",
-        "Create field health maps",
-        "Target interventions to specific areas",
-      ],
-      tools: [
-        "Agricultural drones",
-        "Multispectral cameras",
-        "Image analysis software",
-      ],
+      title: t("farmingTips.3.title"),
+    level: t("farmingTips.3.level"),
+    readTime: t("farmingTips.3.readTime"),
+    summary: t("farmingTips.3.summary"),
+    description: t("farmingTips.3.description"),
+      benefits: t("farmingTips.3.benefits", { returnObjects: true }),
+      steps: t("farmingTips.3.steps", { returnObjects: true }),
+      tools: t("farmingTips.3.tools", { returnObjects: true }),
     },
     {
       id: 5,
       category: "water",
-      title: "Smart Irrigation Systems",
-      level: "Intermediate",
-      readTime: "5 min",
-      summary: "Automate irrigation based on soil moisture and weather data",
-      description:
-        "Install smart irrigation systems that adjust watering schedules based on real-time soil moisture, weather forecasts, and crop growth stages.",
-      benefits: [
-        "Water savings up to 40%",
-        "Improved crop quality",
-        "Reduced labor costs",
-        "Prevented over/under watering",
-      ],
-      steps: [
-        "Install soil moisture sensors at multiple depths",
-        "Connect to weather data services",
-        "Program irrigation schedules by crop growth stage",
-        "Monitor and adjust based on performance data",
-      ],
-      tools: [
-        "Soil moisture sensors",
-        "Automated irrigation controllers",
-        "Weather stations",
-      ],
+      title: t("farmingTips.4.title"),
+    level: t("farmingTips.4.level"),
+    readTime: t("farmingTips.4.readTime"),
+    summary: t("farmingTips.4.summary"),
+    description: t("farmingTips.4.description"),
+      benefits: t("farmingTips.4.benefits", { returnObjects: true }),
+      steps: t("farmingTips.4.steps", { returnObjects: true }),
+      tools: t("farmingTips.4.tools", { returnObjects: true }),
     },
     {
       id: 6,
       category: "soil",
-      title: "No-Till Farming Practices",
-      level: "Intermediate",
-      readTime: "6 min",
-      summary:
-        "Preserve soil structure and reduce erosion with minimal tillage",
-      description:
-        "Reduce or eliminate tillage to maintain soil structure, increase organic matter, and reduce erosion. This practice improves long-term soil health.",
-      benefits: [
-        "Reduced soil erosion",
-        "Improved soil structure",
-        "Lower fuel costs",
-        "Increased biodiversity",
-      ],
-      steps: [
-        "Use cover crops to protect soil surface",
-        "Implement direct seeding techniques",
-        "Manage residues effectively",
-        "Control weeds with targeted herbicides or cultivation",
-      ],
-      tools: [
-        "No-till planters",
-        "Cover crop seeds",
-        "Residue management equipment",
-      ],
+      title: t("farmingTips.5.title"),
+    level: t("farmingTips.5.level"),
+    readTime: t("farmingTips.5.readTime"),
+    summary: t("farmingTips.5.summary"),
+    description: t("farmingTips.5.description"),
+      benefits: t("farmingTips.5.benefits", { returnObjects: true }),
+      steps: t("farmingTips.5.steps", { returnObjects: true }),
+      tools: t("farmingTips.5.tools", { returnObjects: true }),
     },
     {
       id: 7,
       category: "technology",
-      title: "AI-Powered Crop Prediction",
-      level: "Advanced",
-      readTime: "8 min",
-      summary:
-        "Leverage artificial intelligence for yield forecasting and risk management",
-      description:
-        "Use AI algorithms to analyze historical data, weather patterns, and field conditions to predict yields and identify potential risks before they impact production.",
-      benefits: [
-        "Accurate yield forecasting",
-        "Risk mitigation",
-        "Optimized resource allocation",
-        "Better market planning",
-      ],
-      steps: [
-        "Collect historical yield and weather data",
-        "Install IoT sensors for real-time field monitoring",
-        "Train AI models with local data",
-        "Generate predictive reports for decision making",
-      ],
-      tools: ["IoT sensors", "AI software platforms", "Data analytics tools"],
+      title: t("farmingTips.6.title"),
+    level: t("farmingTips.6.level"),
+    readTime: t("farmingTips.6.readTime"),
+    summary: t("farmingTips.6.summary"),
+    description: t("farmingTips.6.description"),
+      benefits: t("farmingTips.6.benefits", { returnObjects: true }),
+      steps: t("farmingTips.6.steps", { returnObjects: true }),
+      tools: t("farmingTips.6.tools", { returnObjects: true }),
     },
     {
       id: 8,
       category: "sustainable",
-      title: "Crop Rotation Optimization",
-      level: "Beginner",
-      readTime: "4 min",
-      summary:
-        "Maximize soil health and yields through strategic crop sequencing",
-      description:
-        "Plan multi-year crop rotations to break pest cycles, improve soil fertility, and maximize profitability while maintaining sustainable practices.",
-      benefits: [
-        "Improved soil fertility",
-        "Reduced pest pressure",
-        "Better disease control",
-        "Increased profitability",
-      ],
-      steps: [
-        "Plan 3-4 year rotation cycles",
-        "Include nitrogen-fixing legumes",
-        "Consider market demands and prices",
-        "Monitor soil health improvements",
-      ],
-      tools: [
-        "Crop planning software",
-        "Soil test kits",
-        "Market analysis tools",
-      ],
+      title: t("farmingTips.7.title"),
+    level: t("farmingTips.7.level"),
+    readTime: t("farmingTips.7.readTime"),
+    summary: t("farmingTips.7.summary"),
+    description: t("farmingTips.7.description"),
+      benefits: t("farmingTips.7.benefits", { returnObjects: true }),
+      steps: t("farmingTips.7.steps", { returnObjects: true }),
+      tools: t("farmingTips.7.tools", { returnObjects: true }),
     },
   ];
 
@@ -391,7 +274,7 @@ const FarmingTipsPage = () => {
                     <div className="space-y-4 animate-in slide-in-from-top-2">
                       <div>
                         <h4 className="font-semibold text-green-900 mb-2">
-                          Description
+                          {t("Description")}
                         </h4>
                         <p className="text-green-700 text-sm">
                           {tip.description}
@@ -400,7 +283,7 @@ const FarmingTipsPage = () => {
 
                       <div>
                         <h4 className="font-semibold text-green-900 mb-2">
-                          Key Benefits
+                          {t("Key Benefits")}
                         </h4>
                         <ul className="space-y-1">
                           {tip.benefits.map((benefit, index) => (
@@ -417,7 +300,7 @@ const FarmingTipsPage = () => {
 
                       <div>
                         <h4 className="font-semibold text-green-900 mb-2">
-                          Implementation Steps
+                          {t("Implementation Steps")}
                         </h4>
                         <ol className="space-y-1">
                           {tip.steps.map((step, index) => (
@@ -436,7 +319,7 @@ const FarmingTipsPage = () => {
 
                       <div>
                         <h4 className="font-semibold text-green-900 mb-2">
-                          Required Tools
+                          {t("Required Tools")}
                         </h4>
                         <div className="flex flex-wrap gap-1">
                           {tip.tools.map((tool, index) => (
