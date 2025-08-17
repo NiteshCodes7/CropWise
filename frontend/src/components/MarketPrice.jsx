@@ -124,7 +124,7 @@ export default function MarketPrice() {
         <CardHeader>
           <CardTitle className="text-green-900 flex items-center">
             <Filter className="w-5 h-5 mr-2" />
-            {t("market.filterTitle")}
+            {t("market.subtitle")}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
