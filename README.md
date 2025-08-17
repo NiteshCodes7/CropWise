@@ -2,6 +2,8 @@
 
 CropWise is a web application designed to help farmers and agricultural professionals manage crops efficiently. This repository contains the frontend codebase built with modern web technologies.
 
+**CropWise supports multiple languages, making it accessible to users from diverse regions.**
+
 ## Features
 
 - User authentication and profile management
@@ -9,6 +11,7 @@ CropWise is a web application designed to help farmers and agricultural professi
 - Weather and soil data integration
 - Crop health analytics and recommendations
 - Responsive and user-friendly interface
+- **Multilingual support for a global user base**
 
 ## Tech Stack
 
