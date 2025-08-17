@@ -16,7 +16,6 @@ export default function WeatherMarket() {
           <h1 className="text-3xl font-bold text-green-900 mb-2">
             {t("title")}
           </h1>
-          <p className="text-green-700">{t("subtitle")}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
