@@ -145,7 +145,7 @@ const FloatingVoiceWidget = () => {
               onChange={(e) => setLang(e.target.value)}
             >
               <option value="hi">हिन्दी</option>
-              <option value="bn">বাংল</option>
+              <option value="bn">বাংলা</option>
               <option value="en">English</option>
             </select>
           </div>
